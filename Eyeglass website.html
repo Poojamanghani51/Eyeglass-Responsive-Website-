@@ -1,0 +1,1168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>complete responsive ecommerce website design</title>
+
+    <!-- font awesome cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+    <!-- custom css file link  -->
+    <style>
+	@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600;700&display=swap');
+
+:root{
+  --black:#2c2c54;
+  --orange:#ff9f1a;
+}
+
+*{
+  font-family: 'Nunito', sans-serif;
+  margin: 0; padding:0;
+  box-sizing: border-box;
+  outline: none; border:none;
+  text-decoration: none;
+  text-transform: capitalize;
+  transition: all .2s linear;
+}
+
+html{
+  font-size: 62.5%;
+  overflow-x: hidden;
+  scroll-padding-top:6rem;
+  scroll-behavior: smooth;
+}
+
+section{
+  padding:2rem 9%;
+}
+
+.heading{
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 4rem;
+  color:var(--black);
+  padding:1rem;
+}
+
+.heading span{
+  text-transform: uppercase;
+  color:var(--orange);
+}
+
+.btn{
+  display: inline-block;
+  margin-top: 1rem;
+  border-radius: .5rem;
+  border:.2rem solid var(--black);
+  font-weight: bolder;
+  font-size: 1.7rem;
+  color:var(--black);
+  cursor: pointer;
+  background:#fff;
+  padding:.8rem 3rem;
+}
+
+.btn:hover{
+  background:var(--orange);
+  color:#fff;
+}
+
+header{
+  position: fixed;
+  top:0; left:0; right:0;
+  z-index: 1000;
+  background:#fff;
+  padding:2rem 9%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 .5rem 1rem rgba(0,0,0,.1);
+}
+
+header .logo{
+  font-size: 2.5rem;
+  color:var(--black);
+}
+
+header .navbar a{
+  font-size: 1.7rem;
+  color:var(--black);
+  margin:0 1rem;
+}
+
+header .navbar a:hover{
+  color:var(--orange);
+}
+
+header .icons a{
+  font-size: 2.5rem;
+  color:var(--black);
+  margin-left:1.5rem;
+}
+
+header .icons a:hover{
+  color:var(--orange);
+}
+
+#menu-bar{
+  font-size: 2.5rem;
+  padding: .5rem 1.5rem;
+  border:.1rem solid var(--black);
+  color:var(--black);
+  border-radius: .3rem;
+  cursor: pointer;
+  display: none;
+}
+
+.home{
+  padding:0;
+  position:relative;
+}
+
+.home .slide-container .slide{
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap:1.5rem;
+  padding:0 9%;
+  padding-top: 9rem;
+}
+
+.home .slide-container .slide .content{
+  flex:1 1 40rem;
+  animation: slideContent .5s linear 1s backwards;
+}
+
+@keyframes slideContent{
+  0%{
+    opacity: 0;
+    transform: translateX(-10rem);
+  }
+}
+
+.home .slide-container .slide .image{
+  flex:1 1 40rem;
+  padding-bottom: 15rem;
+  position: relative;
+  z-index: 0;
+}
+
+.home .slide-container .slide .image .eyeglass{
+  width:100%;
+  transform: scale(1);
+  animation:shoe .3s linear;
+}
+
+@keyframes eyeglass{
+  0%{
+    transform: rotate(0deg) scale(.5);
+  }
+}
+
+.home .slide-container .slide .image .text{
+  position: absolute;
+  top:0; left:0;
+  z-index: -1;
+  animation:shoeText .5s linear .5s backwards;
+}
+
+@keyframes eyeglass{
+  0%{
+    opacity: 0;
+    top:-10rem;
+  }
+}
+
+.home .slide-container .slide .content span{
+  font-size: 2rem;
+  color:var(--orange);
+}
+
+.home .slide-container .slide .content h3{
+  font-size: 5rem;
+  color:var(--black);
+}
+
+.home .slide-container .slide .content p{
+  font-size: 1.7rem;
+  color:#666;
+  padding:.5rem 0;
+}
+
+.home .slide-container:nth-child(1) .slide{
+  background:url(../images/home-bg-1.jpg) no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.home .slide-container:nth-child(2) .slide{
+  background:url(../images/home-bg-2.jpg) no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.home .slide-container:nth-child(3) .slide{
+  background:url(../images/home-bg-3.jpg) no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.home .slide-container{
+  display: none;
+}
+
+.home .slide-container.active{
+  display: block;
+}
+
+.home #prev,
+.home #next{
+  position: absolute;
+  top:50%; 
+  transform:translateY(-50%);
+  border-radius: 50%;
+  z-index: 100;
+  height:5rem;
+  width:5rem;
+  line-height: 4.5rem;
+  font-size: 2rem;
+  color:var(--black);
+  border:.2rem solid var(--black);
+  cursor: pointer;
+  text-align: center;
+}
+
+.home #prev:hover,
+.home #next:hover{
+  color:#fff;
+  background:var(--orange);
+}
+
+.home #prev{
+  left:3rem;
+}
+
+.home #next{
+  right:3rem;
+}
+
+.service .box-container{
+  display: flex;
+  flex-wrap: wrap;
+  gap:1.5rem;
+  background:#f9f9f9;
+  border:.1rem solid rgba(0,0,0,.1);
+  border-radius: .5rem;
+  padding:2rem;
+}
+
+.service .box-container .box{
+  text-align: center;
+  flex:1 1 30rem
+}
+
+.service .box-container .box i{
+  font-size: 4rem;
+  color:var(--orange);
+}
+
+.service .box-container .box h3{
+  font-size: 2rem;
+  color:var(--black);
+  padding-top: 1rem;
+}
+
+.service .box-container .box p{
+  font-size: 1.5rem;
+  color:#666;
+  padding:1rem 0;
+}
+
+.products .box-container{
+  display: flex;
+  flex-wrap: wrap;
+  gap:1.5rem;
+}
+
+.products .box-container .box{
+  border:.1rem solid rgba(0,0,0,.1);
+  border-radius: .5rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  background:#f9f9f9;
+  flex:1 1 30rem;
+}
+
+.products .box-container .box .content{
+  padding:1.5rem;
+}
+
+.products .box-container .box img{
+  height:10rem;
+  transform: scale(1);
+  filter:drop-shadow(0 .5rem 1rem rgba(0,0,0,.1));
+  margin:8rem 2rem;
+}
+
+.products .box-container .box:hover img{
+  transform: rotate(-35deg) scale(1.2);
+}
+
+.products .box-container .box .icons{
+  display: flex;
+  flex-flow: column;
+  position: absolute;
+  top:.5rem; left:-10rem;
+}
+
+.products .box-container .box:hover .icons{
+  left:1rem;
+}
+
+.products .box-container .box .icons a{
+  height:4.5rem;
+  width:5rem;
+  line-height: 4.5rem;
+  font-size: 2rem;
+  color:var(--black);
+  border:.1rem solid var(--black);
+  border-radius: .5rem;
+  background:#fff;
+  margin-top: .5rem;
+}
+
+.products.box-container .box .icons a:hover{
+  background:var(--orange);
+  color:#fff;
+}
+
+.products .box-container .box .content h3{
+  color:var(--black);
+  font-size: 2.5rem;
+}
+
+.products .box-container .box .content .price{
+  color:var(--black);
+  font-size: 2.5rem;
+  font-weight: bolder;
+  padding:1rem 0;
+}
+
+.products .box-container .box .content .price span{
+  color:var(--orange);
+  font-size: 1.5rem;
+  text-decoration: line-through;
+}
+
+.products .box-container .box .content .stars{
+  padding-bottom: 1rem;
+}
+
+.products .box-container .box .content .stars i{
+  font-size: 1.7rem;
+  color:var(--orange);
+}
+
+.featured .row{
+  display: flex;
+  flex-wrap: wrap;
+  gap:1.5rem;
+  border:.1rem solid rgba(0,0,0,.1);
+  border-radius: .5rem;
+  background:#f9f9f9;
+  padding:2rem;
+  align-items: center;
+  margin:1.5rem 0;
+}
+
+.featured .row .content{
+  flex:1 1 40rem;
+}
+
+.featured .row .image-container{
+  display:flex;
+  gap:1.5rem;
+  align-items: center;
+  flex:1 1 50rem;
+}
+
+.featured .row .image-container .small-image{
+  width:20%;
+}
+
+.featured .row .image-container .big-image{
+  width:80%;
+  padding:1rem;
+}
+
+.featured .row .image-container .small-image img{
+  width:100%;
+  padding:1rem;
+  border:.1rem solid rgba(0,0,0,.3);
+  cursor: pointer;
+}
+
+.featured .row .image-container .small-image img:hover{
+  background:#ccc;
+}
+
+.featured .row .image-container .big-image img{
+  width:100%;
+}
+
+.featured .row .image-container .big-image img:hover{
+  transform: scale(1.05);
+}
+
+.featured .row .content h3{
+  font-size: 2.5rem;
+  color:var(--black);
+}
+
+.featured .row .content .stars i{
+  font-size: 1.7rem;
+  color:var(--orange);
+  padding:.5rem 0;
+}
+
+.featured .row .content p{
+  font-size: 1.5rem;
+  color:#666;
+  padding:1rem 0;
+}
+
+.featured .row .content .price{
+  font-size: 2.5rem;
+  color:var(--black);
+  font-weight: bolder;
+}
+
+.featured .row .content .price span{
+  font-size: 1.5rem;
+  color:var(--orange);
+  text-decoration: line-through;
+}
+
+.review .box-container{
+  display: flex;
+  flex-wrap: wrap;
+  gap:1.5rem;
+}
+
+.review .box-container .box{
+  flex:1 1 30rem;
+  text-align: center;
+  border:.1rem solid rgba(0,0,0,.1);
+  border-radius: .5rem;
+  background:#f9f9f9;
+  padding:2rem;
+}
+
+.review .box-container .box img{
+  border-radius: 50%;
+  object-fit: cover;
+  height:15rem;
+  width:15rem;
+  margin:1rem 0;
+}
+
+.review .box-container .box h3{
+  font-size: 2.5rem;
+  color:var(--black);
+}
+
+.review .box-container .box p{
+  font-size: 1.6rem;
+  color:#666;
+  padding:1rem 0;
+}
+
+.review .box-container .box .stars i{
+  color:var(--orange);
+  font-size: 2rem;
+}
+
+.newsletter{
+  padding-top: .5rem;
+  padding-bottom: .5rem;
+}
+
+.newsletter .content{
+  text-align: center;
+  border:.1rem solid rgba(0,0,0,.1);
+  border-radius: .5rem;
+  background:#f9f9f9;
+  padding:2rem;
+}
+
+.newsletter .content h3{
+  font-size: 2.5rem;
+  color:var(--black);
+}
+
+.newsletter .content p{
+  font-size: 1.5rem;
+  color:#666;
+  margin:1rem auto;
+  max-width: 60rem;
+}
+
+.newsletter .content form{
+  margin:1rem auto;
+  max-width: 50rem;
+  display: flex;
+}
+
+.newsletter .content form .box{
+  width:100%;
+  font-size: 1.7rem;
+  text-transform: none;
+  color:#333;
+  padding:1rem;
+  border:.2rem solid var(--black);
+  border-right: none;
+  margin-top: 1rem;
+}
+
+.newsletter .content form .btn{
+  border-radius: 0;
+}
+
+.footer .box-container{
+  border:.1rem solid rgba(0,0,0,.1);
+  border-radius: .5rem;
+  background:#f9f9f9;
+  padding:2rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap:1.5rem;
+}
+
+.footer .box-container .box{
+  flex:1 1 20rem;
+}
+
+.footer .box-container .box h3{
+  color:var(--black);
+  font-size: 2.5rem;
+  padding-bottom: 1.5rem;
+}
+
+.footer .box-container .box a{
+  color:#666;
+  font-size: 1.5rem;
+  padding-bottom: 1.5rem;
+  display: block;
+}
+
+.footer .box-container .box a:hover{
+  color:var(--orange);
+}
+
+.footer .box-container .credit{
+  text-align: center;
+  width:100%;
+  border-top: .1rem solid rgba(0,0,0,.1);
+  font-size: 1.5rem;
+  padding:1rem;
+  padding-top: 2rem;
+  color:#999;
+}
+
+.footer .box-container .credit span{
+  color:var(--orange);
+}
+
+/* media queries  */
+
+@media (max-width:991px){
+
+  html{
+    font-size: 55%;
+  }
+
+  header{
+    padding:2rem;
+  }
+
+  section{
+    padding:2rem;
+  }
+
+}
+
+@media (max-width:768px){
+
+  #menu-bar{
+    display: block;
+  }
+
+  header .navbar{
+    position: absolute;
+    top:100%; left:-120%;
+    width:100%;
+    background:#eee;
+    border-top: .1rem solid rgba(0,0,0,.1);
+  }
+
+  header .navbar.active{
+    left:0;
+  }
+
+  header .navbar a{
+    font-size: 2rem;
+    background:#fff;
+    border:.1rem solid var(--black);
+    border-radius: .5rem;
+    padding:1.5rem;
+    margin:1.5rem;
+    display: block;
+    text-align: center;
+  }
+
+  .home .slide-container .slide .image .text{
+    width:60%;
+  }
+
+  .home #prev,
+  .home #next{
+    top:85%;
+  }
+
+}
+
+@media (max-width:400px){
+
+  html{
+    font-size: 50%;
+  }
+
+  .home .slide-container .slide .image{
+    padding-bottom: 6rem;
+  }
+
+  .heading{
+    font-size: 3rem;
+  }
+
+}
+</style>
+
+</head>
+<body>
+
+<!-- header section starts  -->
+
+<header>
+
+    <div id="menu-bar" class="fas fa-bars"></div>
+
+    <a href="#" class="logo">eyeglass</a>
+
+    <nav class="navbar">
+        <a href="#home">home</a>
+        <a href="#products">products</a>
+        <a href="#featured">featured</a>
+        <a href="#review">review</a>
+    </nav>
+
+    <div class="icons">
+        <a href="#" class="fas fa-heart"></a>
+        <a href="#" class="fas fa-shopping-cart"></a>
+        <a href="#" class="fas fa-user"></a>
+    </div>
+
+</header>
+
+<!-- header section ends -->
+
+<!-- home section starts  -->
+
+<section class="home" id="home">
+
+    <div class="slide-container active">
+        <div class="slide">
+            <div class="content">
+                <span>Ray-Ban</span>
+                <h3>Ray-Ban eyewear</h3>
+                <p> Ray-Ban produces an impressive collection of elegant, timeless eyewear. This brand’s pro-deal offers a range of products that match your style and have practicality.</p>
+                <a href="#" class="btn">add to cart</a>
+            </div>
+            <div class="image">
+                <img src="https://img.freepik.com/free-photo/eyeglasses-wear_1203-2604.jpg?w=740&t=st=1681727294~exp=1681727894~hmac=33ebb189f5ab83c266b7e514265fbcbf7fc8cf565da5fc5c7cda6e0db13d1075 " class="eyeglass" alt="">
+                
+            </div>
+        </div>
+    </div>
+
+    <div class="slide-container">
+        <div class="slide">
+            <div class="content">
+             <span>Ray-Ban</span>
+                <h3>Ray-Ban eyewear</h3>
+                <p> Ray-Ban produces an impressive collection of elegant, timeless eyewear. This brand’s pro-deal offers a range of products that match your style and have practicality.</p>
+                <a href="#" class="btn">add to cart</a>
+            </div>
+            <div class="image">
+                <img src="https://img.freepik.com/free-photo/closeup-high-angle-shot-eyeglasses-with-shadow-grey-surface_181624-23212.jpg?w=740&t=st=1681727648~exp=1681728248~hmac=5adbf0278d9ba7711efc27e2d2b259ad206bc3488cd66d0f7d823022e901643c " class="eyeglass" alt="">
+                
+            </div>
+        </div>
+    </div>
+
+    <div class="slide-container">
+        <div class="slide">
+            <div class="content">
+                 <span>Ray-Ban</span>
+                <h3>Ray-Ban eyewear</h3>
+                <p> Ray-Ban produces an impressive collection of elegant, timeless eyewear. This brand’s pro-deal offers a range of products that match your style and have practicality.</p>
+                <a href="#" class="btn">add to cart</a>
+            </div>
+            <div class="image">
+                <img src=" https://img.freepik.com/free-photo/sunglasses_1203-7887.jpg?w=740&t=st=1681727827~exp=1681728427~hmac=b76115b943e71f1445b9e3da3af595d4b6f2b69f8c246cc04ae0d7a11a39e9c0" class="eyeglass" alt="">
+               
+            </div>
+        </div>
+    </div>
+
+    <div id="prev" class="fas fa-chevron-left" onclick="prev()"></div>
+    <div id="next" class="fas fa-chevron-right" onclick="next()"></div>
+
+</section>
+
+<!-- home section ends -->
+
+<!-- service section starts  -->
+
+<section class="service">
+
+    <div class="box-container">
+
+        <div class="box">
+            <i class="fas fa-shipping-fast"></i>
+            <h3>fast delivery</h3>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Illum, fugit.</p>
+        </div>
+
+        <div class="box">
+            <i class="fas fa-undo"></i>
+            <h3>10 days replacements</h3>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Illum, fugit.</p>
+        </div>
+
+        <div class="box">
+            <i class="fas fa-headset"></i>
+            <h3>24 x 7 support</h3>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Illum, fugit.</p>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- service section ends -->
+
+<!-- products section starts  -->
+
+<section class="products" id="products">
+
+    <h1 class="heading"> latest <span>products</span> </h1>
+
+    <div class="box-container">
+
+        <div class="box">
+            <div class="icons">
+                <a href="#" class="fas fa-heart"></a>
+                <a href="#" class="fas fa-share"></a>
+                <a href="#" class="fas fa-eye"></a>
+            </div>
+              <img src="https://img.freepik.com/free-photo/eyeglasses-wear_1203-2604.jpg?w=740&t=st=1681727294~exp=1681727894~hmac=33ebb189f5ab83c266b7e514265fbcbf7fc8cf565da5fc5c7cda6e0db13d1075 " alt="">
+                
+            <div class="content">
+                <h3>Ray-Ban eyewear</h3>
+                <div class="price">$120.99 <span>$150.99</span></div>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="far fa-star"></i>
+                </div>
+                <a href="#" class="btn">add to cart</a>
+            </div>
+        </div>
+
+        <div class="box">
+            <div class="icons">
+                <a href="#" class="fas fa-heart"></a>
+                <a href="#" class="fas fa-share"></a>
+                <a href="#" class="fas fa-eye"></a>
+            </div>
+            <img src="https://img.freepik.com/free-photo/closeup-high-angle-shot-eyeglasses-with-shadow-grey-surface_181624-23212.jpg?w=740&t=st=1681727648~exp=1681728248~hmac=5adbf0278d9ba7711efc27e2d2b259ad206bc3488cd66d0f7d823022e901643c " class="eyeglass" alt="">
+                
+            <<div class="content">
+                <h3>Ray-Ban eyewear</h3>
+                <div class="price">$120.99 <span>$150.99</span></div>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="far fa-star"></i>
+                </div>
+                <a href="#" class="btn">add to cart</a>
+            </div>
+        </div>
+
+        <div class="box">
+            <div class="icons">
+                <a href="#" class="fas fa-heart"></a>
+                <a href="#" class="fas fa-share"></a>
+                <a href="#" class="fas fa-eye"></a>
+            </div>
+             <img src=" https://img.freepik.com/free-photo/sunglasses_1203-7887.jpg?w=740&t=st=1681727827~exp=1681728427~hmac=b76115b943e71f1445b9e3da3af595d4b6f2b69f8c246cc04ae0d7a11a39e9c0" class="eyeglass" alt="">
+                
+            <div class="content">
+                <h3>Ray-Ban eyewear</h3>
+                <div class="price">$120.99 <span>$150.99</span></div>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="far fa-star"></i>
+                </div>
+                <a href="#" class="btn">add to cart</a>
+            </div>
+        </div>
+
+        <div class="box">
+            <div class="icons">
+                <a href="#" class="fas fa-heart"></a>
+                <a href="#" class="fas fa-share"></a>
+                <a href="#" class="fas fa-eye"></a>
+            </div>
+            <img src="https://images.unsplash.com/photo-1556306510-31ca015374b0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80 " alt="">
+            <div class="content">
+                <h3>Ray-Ban eyewear</h3>
+                <div class="price">$120.99 <span>$150.99</span></div>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="far fa-star"></i>
+                </div>
+                <a href="#" class="btn">add to cart</a>
+            </div>
+        </div>
+
+        <div class="box">
+            <div class="icons">
+                <a href="#" class="fas fa-heart"></a>
+                <a href="#" class="fas fa-share"></a>
+                <a href="#" class="fas fa-eye"></a>
+            </div>
+            <img src=" https://images.unsplash.com/photo-1603578119639-798b8413d8d7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80" alt="">
+            <div class="content">
+                <h3>Ray-Ban eyewear</h3>
+                <div class="price">$120.99 <span>$150.99</span></div>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="far fa-star"></i>
+                </div>
+                <a href="#" class="btn">add to cart</a>
+            </div>
+        </div>
+
+        <div class="box">
+            <div class="icons">
+                <a href="#" class="fas fa-heart"></a>
+                <a href="#" class="fas fa-share"></a>
+                <a href="#" class="fas fa-eye"></a>
+            </div>
+            <img src="https://images.unsplash.com/photo-1483412468200-72182dbbc544?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=873&q=80 " alt="">
+            <div class="content">
+                <h3>Ray-Ban eyewear</h3>
+                <div class="price">$120.99 <span>$150.99</span></div>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="far fa-star"></i>
+                </div>
+                <a href="#" class="btn">add to cart</a>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- products section ends -->
+
+<!-- featured section starts  -->
+
+<section class="featured" id="featured">
+
+    <h1 class="heading"> <span>featured</span> collection </h1>
+
+    <div class="row">
+        <div class="image-container">
+            <div class="small-image">
+                <img src="https://images.unsplash.com/photo-1483412468200-72182dbbc544?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=873&q=80 " class="featured-image-1" alt="">
+                <img src="https://images.unsplash.com/photo-1511499767150-a48a237f0083?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80 " class="featured-image-1" alt="">
+                <img src=" https://images.unsplash.com/photo-1572635196237-14b3f281503f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80" class="featured-image-1" alt="">
+                <img src="https://images.unsplash.com/photo-1610136649349-0f646f318053?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80 " class="featured-image-1" alt="">
+            </div>
+            <div class="big-image">
+                <img src=" https://img.freepik.com/free-photo/man-store-trying-glasses_23-2148920054.jpg?w=740&t=st=1681807962~exp=1681808562~hmac=5d4ebdd058ed288498b816dfdb5c8780584f9127611babfe5c32bc6c4804ee00" class="big-image-1" alt="">
+            </div>
+        </div>
+        <div class="content">
+            <h3>new Ray-Ban collection</h3>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+            </div>
+            <p>Use the badges below to our browse most-popular selections.</p>
+            <div class="price">$80.99 <span>$120.99</span></div>
+            <a href="#" class="btn">add to cart</a>
+        </div>
+    </div>
+<div class="row">
+        <div class="image-container">
+            <div class="small-image">
+                <img src="https://images.unsplash.com/photo-1483412468200-72182dbbc544?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=873&q=80 " class="featured-image-2" alt="">
+                <img src="https://images.unsplash.com/photo-1511499767150-a48a237f0083?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80 " class="featured-image-2" alt="">
+                <img src=" https://images.unsplash.com/photo-1572635196237-14b3f281503f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80" class="featured-image-2" alt="">
+                <img src="https://images.unsplash.com/photo-1610136649349-0f646f318053?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80 " class="featured-image-2" alt="">
+            </div>
+            <div class="big-image">
+                <img src="https://img.freepik.com/free-photo/man-looking-new-glasses-optometrist_23-2148196726.jpg?t=st=1681807962~exp=1681808562~hmac=f68c19ebecdcc3712cfa8ab982c8e75f1ae71e26032f7e3d7db85b3553c35f1f " class="big-image-2" alt="">
+            </div>
+        </div>
+        <div class="content">
+            <h3>new Ray-Ban collection</h3>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+            </div>
+            <p>It takes courage to be genuine.</p>
+            <div class="price">$80.99 <span>$120.99</span></div>
+            <a href="#" class="btn">add to cart</a>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="image-container">
+            <div class="small-image">
+                <img src="https://images.unsplash.com/photo-1483412468200-72182dbbc544?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=873&q=80 " class="featured-image-3" alt="">
+                <img src="https://images.unsplash.com/photo-1511499767150-a48a237f0083?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80 " class="featured-image-3" alt="">
+                <img src=" https://images.unsplash.com/photo-1572635196237-14b3f281503f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80" class="featured-image-3" alt="">
+                <img src="https://images.unsplash.com/photo-1610136649349-0f646f318053?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80 " class="featured-image-3" alt="">
+            </div>
+            <div class="big-image">
+                <img src=" https://img.freepik.com/free-photo/employee-working-store-glasses_23-2148920017.jpg?w=740&t=st=1681808146~exp=1681808746~hmac=5d3aa09c41b4880060ee4dc0b94b48450b2c6e9f83f0e31fb4275b1e3a33eb41" class="big-image-3" alt="">
+            </div>
+        </div>
+        <div class="content">
+            <h3>new Ray-Ban collection</h3>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+            </div>
+            <p>Even lighter,even stronger,equaly timeless.Discover our collection made in japan.</p>
+            <div class="price">$80.99 <span>$120.99</span></div>
+            <a href="#" class="btn">add to cart</a>
+        </div>
+    </div>
+
+</section>
+
+<!-- featured section ends -->
+
+<!-- review section starts  -->
+
+<section class="review" id="review">
+
+    <h1 class="heading"> customer's <span>review</span> </h1>
+
+    <div class="box-container">
+
+        <div class="box">
+            <img src="https://img.freepik.com/free-photo/young-woman-with-round-glasses-yellow-sweater_273609-7091.jpg?w=740&t=st=1681808423~exp=1681809023~hmac=e1f1343dc20cbdbbd6156e1fc5f10f961a517ab2fba751df066bffec9196cfb4 " alt="">
+            <h3> Freya</h3>
+            <p> “Tried it for the first time and totally in love with the experience. Economical, wide range of options & impeccable QUALITY!”</p>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+            </div>
+        </div>
+
+        <div class="box">
+            <img src="https://img.freepik.com/free-photo/headshot-beautiful-dark-skinned-curly-has-pleased-expression-rejoices-success-enjoys-spare-time-wears-casual-t-shirt-isolated-yellow-wall-people-positive-emotions-feelings-concept_273609-27729.jpg?w=740&t=st=1681808569~exp=1681809169~hmac=a0d10393fd9b37ca8fe0e7b4febcfe870b1fa3e8d830584135e8589140af5897 " alt="">
+            <h3>Amelia </h3>
+            <p>"Top quality lenses & frames at very reasonable prices. They provided me all additional coatings for free without any additional costs. Strongly recommend." </p>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+            </div>
+        </div>
+
+        <div class="box">
+            <img src="https://img.freepik.com/free-photo/happy-man-with-long-thick-ginger-beard-has-friendly-smile_273609-16616.jpg?t=st=1681808569~exp=1681809169~hmac=3806980fbaabfca8da6c4f562a5077e70c067eda42b50becb20ae2d16c28f17a " alt="">
+            <h3>john deo</h3>
+            <p> "SPEEDY DELIVERY! Just received my pair & delighted to see the QUALITY of spectacles for such an affordable price."</p>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- review section ends -->
+
+<!-- newsletter section starts  -->
+
+<section class="newsletter">
+
+    <div class="content">
+        <h3>monthly newsletter</h3>
+        <p>Join Our Email List Sign Up to be the first to know about diacounts, new frames and more!
+	Join now and receive 40% off your first order!</p>
+        <form action="">
+            <input type="email" placeholder="enter your email" class="box">
+            <input type="submit" value="send" class="btn">
+        </form>
+    </div>
+
+</section>
+
+<!-- newsletter section ends -->
+
+<!-- footer section  -->
+
+<section class="footer">
+
+    <div class="box-container">
+
+        <div class="box">
+            <h3>our stores</h3>
+            <a href="#">india</a>
+            <a href="#">USA</a>
+            <a href="#">japan</a>
+            <a href="#">paris</a>
+        </div>
+
+        <div class="box">
+            <h3>quick links</h3>
+            <a href="#">home</a>
+            <a href="#">products</a>
+            <a href="#">featured</a>
+            <a href="#">review</a>
+        </div>
+
+        <div class="box">
+            <h3>extra links</h3>
+            <a href="#">my account</a>
+            <a href="#">my favorite</a>
+            <a href="#">my orders</a>
+            <a href="#">newsletter</a>
+        </div>
+
+        <div class="box">
+            <h3>follow us</h3>
+            <a href="#">facebook</a>
+            <a href="#">twitter</a>
+            <a href="#">instagram</a>
+            <a href="#">linkedin</a>
+        </div>
+
+        <div class="credit">created by <span> ms. web designer </span> | all rights reserved</div>
+
+    </div>
+
+</section>
+<!-- custom js file link  -->
+<script>
+let menu = document.querySelector('#menu-bar');
+let navbar = document.querySelector('.navbar');
+
+menu.onclick = () =>{
+  menu.classList.toggle('fa-times');
+  navbar.classList.toggle('active');
+}
+
+window.onscroll = () =>{
+  menu.classList.remove('fa-times');
+  navbar.classList.remove('active');
+}
+
+let slides = document.querySelectorAll('.slide-container');
+let index = 0;
+
+function next(){
+  slides[index].classList.remove('active');
+  index = (index + 1) % slides.length;
+  slides[index].classList.add('active');
+}
+
+function prev(){
+  slides[index].classList.remove('active');
+  index = (index - 1 + slides.length) % slides.length;
+  slides[index].classList.add('active');
+}
+
+document.querySelectorAll('.featured-image-1').forEach(image_1 =>{
+  image_1.addEventListener('click', () =>{
+    var src = image_1.getAttribute('src');
+    document.querySelector('.big-image-1').src = src;
+  });
+});
+
+document.querySelectorAll('.featured-image-2').forEach(image_2 =>{
+  image_2.addEventListener('click', () =>{
+    var src = image_2.getAttribute('src');
+    document.querySelector('.big-image-2').src = src;
+  });
+});
+
+document.querySelectorAll('.featured-image-3').forEach(image_3 =>{
+  image_3.addEventListener('click', () =>{
+    var src = image_3.getAttribute('src');
+    document.querySelector('.big-image-3').src = src;
+  });
+});
+</script>
+</body>
+</html>
